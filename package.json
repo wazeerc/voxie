@@ -1,0 +1,28 @@
+{
+	"private": true,
+	"type": "module",
+	"scripts": {
+		"dev": "vite",
+		"build": "vite build",
+		"preview": "vite preview",
+		"format": "eslint --fix \"src/**/*.{js,jsx,ts,tsx}\""
+	},
+	"dependencies": {
+		"preact": "^10.25.3",
+		"preact-iso": "^2.9.1",
+		"preact-render-to-string": "^6.5.13"
+	},
+	"devDependencies": {
+		"@preact/preset-vite": "^2.9.3",
+		"eslint": "^8.57.1",
+		"eslint-config-preact": "^1.5.0",
+		"eslint-config-prettier": "^10.1.1",
+		"eslint-plugin-prettier": "^5.2.3",
+		"prettier": "^3.5.3",
+		"typescript": "^5.8.2",
+		"vite": "^6.0.4"
+	},
+	"eslintConfig": {
+		"extends": "preact"
+	}
+}
