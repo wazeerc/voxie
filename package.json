@@ -1,6 +1,7 @@
 {
 	"private": true,
 	"type": "module",
+	"version": "0.1.0",
 	"scripts": {
 		"dev": "vite",
 		"build": "vite build",
@@ -8,6 +9,7 @@
 		"format": "eslint --fix \"src/**/*.{js,jsx,ts,tsx}\""
 	},
 	"dependencies": {
+		"pdfjs-dist": "^3.11.174",
 		"preact": "^10.25.3",
 		"preact-iso": "^2.9.1",
 		"preact-render-to-string": "^6.5.13"
