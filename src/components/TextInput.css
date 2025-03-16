@@ -7,7 +7,7 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  animation: fadeIn var(--transition-normal);
+  animation: fadeInExpand 0.5s 0.1s var(--easing-smooth) backwards;
 }
 
 .notes-textarea {
@@ -31,6 +31,7 @@
   border-width: 2px;
   box-shadow: 0 0 0 3px rgba(0, 38, 66, 0.2), var(--shadow-md);
   outline: none;
+  animation: glowPulse 2.5s infinite;
 }
 
 .notes-textarea::placeholder {
@@ -48,4 +49,30 @@
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border-width: 0;
+}
+
+@keyframes fadeInExpand {
+  from {
+    opacity: 0;
+    transform: scale(0.97);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes glowPulse {
+  0% {
+    box-shadow: 0 0 0 3px rgba(0, 38, 66, 0.1), var(--shadow-md);
+  }
+
+  50% {
+    box-shadow: 0 0 0 4px rgba(0, 38, 66, 0.2), var(--shadow-md);
+  }
+
+  100% {
+    box-shadow: 0 0 0 3px rgba(0, 38, 66, 0.1), var(--shadow-md);
+  }
 }

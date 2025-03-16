@@ -17,6 +17,7 @@
   height: 56px;
   box-shadow: var(--shadow-md);
   transition: all var(--transition-fast);
+  animation: floatIn 0.5s var(--easing-bounce) 0.3s backwards;
 }
 
 .upload-label svg {
@@ -26,24 +27,16 @@
 .upload-label:hover {
   background-color: var(--color-secondary-light);
   box-shadow: var(--shadow-lg);
+  transform: translateY(-3px);
 }
 
 .upload-label:hover svg {
-  animation: spin 1s infinite alternate;
-}
-
-@keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
-
-  100% {
-    transform: rotate(15deg);
-  }
+  animation: wiggle 1.2s var(--easing-bounce) infinite;
 }
 
 .upload-label:active {
-  transform: scale(0.95);
+  transform: scale(0.92);
+  transition: transform 0.1s var(--easing-accelerate);
 }
 
 .file-input {
@@ -69,5 +62,69 @@
   width: max-content;
   max-width: 250px;
   transform: translateY(-8px);
-  animation: fadeIn var(--transition-normal);
+  animation: popIn 0.3s var(--easing-bounce);
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(15deg);
+  }
+}
+
+@keyframes wiggle {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+
+  25% {
+    transform: rotate(12deg) scale(1.1);
+  }
+
+  50% {
+    transform: rotate(-8deg) scale(1.1);
+  }
+
+  75% {
+    transform: rotate(5deg) scale(1.05);
+  }
+
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes floatIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px) scale(0.8);
+  }
+
+  70% {
+    opacity: 1;
+    transform: translateY(-5px) scale(1.05);
+  }
+
+  100% {
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes popIn {
+  0% {
+    opacity: 0;
+    transform: translateY(5px) scale(0.9);
+  }
+
+  70% {
+    opacity: 1;
+    transform: translateY(-10px) scale(1.03);
+  }
+
+  100% {
+    transform: translateY(-8px) scale(1);
+  }
 }

@@ -29,7 +29,7 @@
   background-color: var(--color-primary);
   color: white;
   box-shadow: var(--shadow-sm);
-  transition: all var(--transition-fast);
+  transition: all 0.2s var(--easing-decelerate);
 }
 
 .control-button svg {
@@ -40,12 +40,12 @@
 
 .control-button:hover {
   background-color: var(--color-primary-light);
-  /* Remove transform: translateY(-2px); */
   box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
 }
 
 .control-button:hover svg {
-  animation: pulse 0.8s infinite alternate;
+  animation: beatPulse 0.8s var(--easing-bounce) infinite alternate;
 }
 
 @keyframes pulse {
@@ -58,8 +58,27 @@
   }
 }
 
+@keyframes beatPulse {
+  0% {
+    transform: scale(1);
+  }
+
+  25% {
+    transform: scale(1.15);
+  }
+
+  50% {
+    transform: scale(1.05);
+  }
+
+  100% {
+    transform: scale(1.2);
+  }
+}
+
 .control-button:active {
   transform: scale(0.95);
+  transition: transform 0.1s var(--easing-accelerate);
 }
 
 .control-button:disabled {
@@ -129,14 +148,18 @@
 
 .rate-control input[type="range"]:hover::-webkit-slider-thumb {
   transform: scale(1.2);
+  box-shadow: 0 0 0 4px rgba(229, 149, 0, 0.2);
+  transition: all 0.2s var(--easing-bounce);
 }
 
 .rate-control input[type="range"]:hover::-moz-range-thumb {
   transform: scale(1.2);
+  box-shadow: 0 0 0 4px rgba(229, 149, 0, 0.2);
+  transition: all 0.2s var(--easing-bounce);
 }
 
 .loading-spinner {
-  animation: spin 1s linear infinite;
+  animation: spinGlow 1.2s linear infinite;
 }
 
 @keyframes spin {
@@ -146,5 +169,22 @@
 
   100% {
     transform: rotate(360deg);
+  }
+}
+
+@keyframes spinGlow {
+  0% {
+    transform: rotate(0deg);
+    stroke-width: 2px;
+  }
+
+  50% {
+    stroke-width: 3px;
+    filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.6));
+  }
+
+  100% {
+    transform: rotate(360deg);
+    stroke-width: 2px;
   }
 }

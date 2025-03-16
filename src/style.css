@@ -43,12 +43,14 @@ body {
 	max-height: 900px;
 	width: 100%;
 	padding: var(--spacing-md);
+	animation: fadeInUp 0.6s var(--easing-decelerate);
 }
 
 header {
 	margin-bottom: var(--spacing-lg);
 	text-align: center;
 	padding-bottom: var(--spacing-md);
+	animation: fadeIn 0.7s var(--easing-decelerate);
 }
 
 h1 {
@@ -58,6 +60,7 @@ h1 {
 	font-weight: 800;
 	letter-spacing: -1px;
 	text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
+	animation: titleReveal 0.8s var(--easing-decelerate) both;
 }
 
 h2 {
@@ -66,6 +69,7 @@ h2 {
 	font-weight: 400;
 	font-style: italic;
 	letter-spacing: 0.5px;
+	animation: subtitleReveal 0.8s var(--easing-decelerate) 0.2s both;
 }
 
 .controls-area {
@@ -140,7 +144,19 @@ h2 {
 @keyframes fadeIn {
 	from {
 		opacity: 0;
-		transform: translateY(10px);
+		transform: translateY(15px);
+	}
+
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+@keyframes fadeInUp {
+	from {
+		opacity: 0;
+		transform: translateY(30px);
 	}
 
 	to {
@@ -151,12 +167,36 @@ h2 {
 
 @keyframes slideIn {
 	from {
-		transform: translateX(-10px);
+		transform: translateX(-20px);
 		opacity: 0;
 	}
 
 	to {
 		transform: translateX(0);
 		opacity: 1;
+	}
+}
+
+@keyframes titleReveal {
+	0% {
+		opacity: 0;
+		transform: translateY(-15px);
+	}
+
+	100% {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+@keyframes subtitleReveal {
+	0% {
+		opacity: 0;
+		transform: translateY(-8px);
+	}
+
+	100% {
+		opacity: 1;
+		transform: translateY(0);
 	}
 }
