@@ -69,7 +69,7 @@ Voxie relies on the Web Speech API, which is supported in most modern browsers:
 - Firefox (partial support)
 - Safari (partial support)
 
-Voice selection and quality may vary between browsers. The app works best with Chromium-based browsers that support the latest Web Speech API features.
+Voice selection and quality may vary between browsers. The app works best with Chromium-based browsers that support the latest Web Speech API features, **Microsoft Edge** is preferred.
 
 ## Development
 
@@ -99,7 +99,3 @@ This project is open source and available under the MIT License.
 
 - Icons by [Feather Icons](https://feathericons.com/) & [Vijay](https://3dicons.co/)
 - Uses the SpeechSynthesis API for text-to-speech functionality
-
----
-
-Made with ❤️ by the Voxie Team
