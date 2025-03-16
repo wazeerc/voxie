@@ -7,12 +7,12 @@ Voxie is a lightweight, accessible text-to-speech web application that converts 
 
 ## Features
 
-✅ **Text-to-Speech Conversion** - Convert any text into speech with just a click
-✅ **PDF Document Support** - Upload and convert PDF documents directly
-✅ **Voice Selection** - Choose from multiple voices, with preference for natural-sounding options
-✅ **Playback Controls** - Play, pause, stop, and adjust speech rate
-✅ **Responsive Design** - Works on desktop and mobile devices
-✅ **Clean Interface** - Intuitive, distraction-free user experience
+- ✅ **Text-to-Speech Conversion** - Convert any text into speech with just a click
+- ✅ **PDF Document Support** - Upload and convert PDF documents directly
+- ✅ **Voice Selection** - Choose from multiple voices, with preference for natural-sounding options
+- ✅ **Playback Controls** - Play, pause, stop, and adjust speech rate
+- ✅ **Responsive Design** - Works on desktop and mobile devices
+- ✅ **Clean Interface** - Intuitive, distraction-free user experience
 
 ## Getting Started
 
@@ -25,7 +25,7 @@ Voxie is a lightweight, accessible text-to-speech web application that converts 
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/voxie.git
+git clone https://github.com/wazeerc/voxie.git
 
 # Navigate to the project directory
 cd voxie
