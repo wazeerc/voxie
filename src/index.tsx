@@ -12,6 +12,7 @@ export function App() {
   const [selectedVoice, setSelectedVoice] = useState<SpeechSynthesisVoice | null>(null);
   const [speechRate, setSpeechRate] = useState<number>(1.0);
   const [isPlaying, setIsPlaying] = useState<boolean>(false);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
   const utteranceRef = useRef<SpeechSynthesisUtterance | null>(null);
 
   const isPlaybackDisabled = !notes.trim() || !selectedVoice;
@@ -31,32 +32,41 @@ export function App() {
   const handlePlay = useCallback(() => {
     if (!notes.trim() || !selectedVoice) return;
 
+    setIsLoading(true);
     speechSynthesis.cancel();
 
     const utterance = textToSpeech(notes, selectedVoice, speechRate);
 
+    utterance.addEventListener('start', () => {
+      setIsLoading(false);
+      setIsPlaying(true);
+    });
+
     utterance.addEventListener('end', () => {
       setIsPlaying(false);
+      setIsLoading(false);
     });
 
     utterance.addEventListener('error', () => {
       setIsPlaying(false);
+      setIsLoading(false);
       console.error('Speech synthesis error occurred');
     });
 
     utteranceRef.current = utterance;
     speechSynthesis.speak(utterance);
-    setIsPlaying(true);
   }, [notes, selectedVoice, speechRate]);
 
   const handlePause = useCallback(() => {
     speechSynthesis.pause();
     setIsPlaying(false);
+    setIsLoading(false);
   }, []);
 
   const handleStop = useCallback(() => {
     speechSynthesis.cancel();
     setIsPlaying(false);
+    setIsLoading(false);
   }, []);
 
   const handleRateChange = useCallback((rate: number) => {
@@ -68,23 +78,29 @@ export function App() {
       const wasSpeaking = !speechSynthesis.paused;
 
       speechSynthesis.cancel();
+      setIsLoading(true);
 
       const newUtterance = textToSpeech(currentText, selectedVoice, rate);
 
+      newUtterance.addEventListener('start', () => {
+        setIsLoading(false);
+        if (wasSpeaking) {
+          setIsPlaying(true);
+        }
+      });
+
       newUtterance.addEventListener('end', () => {
         setIsPlaying(false);
+        setIsLoading(false);
       });
 
       newUtterance.addEventListener('error', () => {
         setIsPlaying(false);
+        setIsLoading(false);
       });
 
       utteranceRef.current = newUtterance;
       speechSynthesis.speak(newUtterance);
-
-      if (wasSpeaking) {
-        setIsPlaying(true);
-      }
     }
   }, [selectedVoice]);
 
@@ -103,6 +119,7 @@ export function App() {
           onRateChange={handleRateChange}
           isPlayingExternally={isPlaying}
           isDisabled={isPlaybackDisabled}
+          isLoading={isLoading}
         />
         <VoiceSelector onVoiceChange={handleVoiceChange} />
       </div>
