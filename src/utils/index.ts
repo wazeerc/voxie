@@ -1,6 +1,9 @@
 import * as pdfjs from 'pdfjs-dist';
 
-pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`;
+pdfjs.GlobalWorkerOptions.workerSrc = new URL(
+  'pdfjs-dist/build/pdf.worker.mjs',
+  import.meta.url
+).toString();
 
 function cleanNotes(text: string): string {
   let cleaned = text.replace(/Page\s+\d+\s+of\s+\d+/gi, '');
