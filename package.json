@@ -6,7 +6,7 @@
 		"dev": "vite",
 		"build": "vite build",
 		"preview": "vite preview",
-		"format": "eslint --fix \"src/**/*.{js,jsx,ts,tsx}\""
+		"format": "biome check --write ."
 	},
 	"dependencies": {
 		"pdfjs-dist": "^3.11.174",
@@ -15,16 +15,9 @@
 		"preact-render-to-string": "^6.5.13"
 	},
 	"devDependencies": {
+		"@biomejs/biome": "1.9.4",
 		"@preact/preset-vite": "^2.9.3",
-		"eslint": "^8.57.1",
-		"eslint-config-preact": "^1.5.0",
-		"eslint-config-prettier": "^10.1.1",
-		"eslint-plugin-prettier": "^5.2.3",
-		"prettier": "^3.5.3",
 		"typescript": "^5.8.2",
 		"vite": "^6.0.4"
-	},
-	"eslintConfig": {
-		"extends": "preact"
 	}
 }

@@ -1,93 +1,92 @@
 :root {
-  --color-primary: #002642;
-  --color-secondary: #E59500;
-  --color-dark: #02040F;
-  --color-light: #E5DADA;
-  --color-primary-light: #003a61;
-  --color-secondary-light: #ffaa22;
-  --color-dark-50: rgba(2, 4, 15, 0.5);
-  --color-dark-25: rgba(2, 4, 15, 0.25);
-  --color-light-hover: #dad0d0;
-  --border-radius-sm: 4px;
-  --border-radius-md: 8px;
-  --border-radius-lg: 12px;
-  --shadow-sm: 0 2px 4px rgba(2, 4, 15, 0.1);
-  --shadow-md: 0 4px 8px rgba(2, 4, 15, 0.15);
-  --shadow-lg: 0 8px 16px rgba(2, 4, 15, 0.2);
-  /* Enhanced animation variables */
-  --transition-fast: 0.2s cubic-bezier(0.25, 0.1, 0.25, 1);
-  --transition-normal: 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
-  --transition-slow: 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
-  /* Added animation easing variables */
-  --easing-bounce: cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  --easing-smooth: cubic-bezier(0.645, 0.045, 0.355, 1);
-  --easing-decelerate: cubic-bezier(0, 0, 0.2, 1);
-  --easing-accelerate: cubic-bezier(0.4, 0, 1, 1);
-  --spacing-xs: 0.25rem;
-  --spacing-sm: 0.5rem;
-  --spacing-md: 1rem;
-  --spacing-lg: 1.5rem;
-  --spacing-xl: 2rem;
+	--color-primary: #002642;
+	--color-secondary: #e59500;
+	--color-dark: #02040f;
+	--color-light: #e5dada;
+	--color-primary-light: #003a61;
+	--color-secondary-light: #ffaa22;
+	--color-dark-50: rgba(2, 4, 15, 0.5);
+	--color-dark-25: rgba(2, 4, 15, 0.25);
+	--color-light-hover: #dad0d0;
+	--border-radius-sm: 4px;
+	--border-radius-md: 8px;
+	--border-radius-lg: 12px;
+	--shadow-sm: 0 2px 4px rgba(2, 4, 15, 0.1);
+	--shadow-md: 0 4px 8px rgba(2, 4, 15, 0.15);
+	--shadow-lg: 0 8px 16px rgba(2, 4, 15, 0.2);
+	/* Enhanced animation variables */
+	--transition-fast: 0.2s cubic-bezier(0.25, 0.1, 0.25, 1);
+	--transition-normal: 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+	--transition-slow: 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
+	/* Added animation easing variables */
+	--easing-bounce: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+	--easing-smooth: cubic-bezier(0.645, 0.045, 0.355, 1);
+	--easing-decelerate: cubic-bezier(0, 0, 0.2, 1);
+	--easing-accelerate: cubic-bezier(0.4, 0, 1, 1);
+	--spacing-xs: 0.25rem;
+	--spacing-sm: 0.5rem;
+	--spacing-md: 1rem;
+	--spacing-lg: 1.5rem;
+	--spacing-xl: 2rem;
 }
 
 body {
-  background-color: var(--color-light);
-  color: var(--color-dark);
-  margin: 0;
-  font-family: 'Helvetica', 'Arial', sans-serif;
-  line-height: 1.6;
+	background-color: var(--color-light);
+	color: var(--color-dark);
+	margin: 0;
+	font-family: "Helvetica", "Arial", sans-serif;
+	line-height: 1.6;
 }
 
 button,
 .button {
-  cursor: pointer;
-  border: none;
-  background-color: var(--color-primary);
-  color: white;
-  padding: var(--spacing-sm) var(--spacing-md);
-  border-radius: var(--border-radius-md);
-  font-weight: 500;
-  transition: all var(--transition-fast);
+	cursor: pointer;
+	border: none;
+	background-color: var(--color-primary);
+	color: white;
+	padding: var(--spacing-sm) var(--spacing-md);
+	border-radius: var(--border-radius-md);
+	font-weight: 500;
+	transition: all var(--transition-fast);
 }
 
 button:hover,
 .button:hover {
-  background-color: var(--color-primary-light);
-  box-shadow: var(--shadow-sm);
-  transform: translateY(-2px);
-  transition: transform 0.2s var(--easing-bounce),
-    background-color var(--transition-fast),
-    box-shadow var(--transition-fast);
+	background-color: var(--color-primary-light);
+	box-shadow: var(--shadow-sm);
+	transform: translateY(-2px);
+	transition: transform 0.2s var(--easing-bounce), background-color
+		var(--transition-fast), box-shadow var(--transition-fast);
 }
 
 button:active,
 .button:active {
-  transform: translateY(0) scale(0.98);
-  transition: transform 0.1s var(--easing-accelerate);
+	transform: translateY(0) scale(0.98);
+	transition: transform 0.1s var(--easing-accelerate);
 }
 
 :focus-visible {
-  outline: 2px solid var(--color-secondary);
-  outline-offset: 2px;
+	outline: 2px solid var(--color-secondary);
+	outline-offset: 2px;
 }
 
 * {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
+	-ms-overflow-style: none;
+	scrollbar-width: none;
 }
 
 ::-webkit-scrollbar {
-  display: none;
+	display: none;
 }
 
 ::-webkit-scrollbar-track {
-  display: none;
+	display: none;
 }
 
 ::-webkit-scrollbar-thumb {
-  display: none;
+	display: none;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  display: none;
+	display: none;
 }

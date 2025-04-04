@@ -1,130 +1,130 @@
 .notes-uploader {
-  margin: 0;
-  position: relative;
+	margin: 0;
+	position: relative;
 }
 
 .upload-label {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: var(--spacing-md);
-  background-color: var(--color-secondary);
-  color: white;
-  border-radius: 50%;
-  cursor: pointer;
-  font-size: 1rem;
-  width: 56px;
-  height: 56px;
-  box-shadow: var(--shadow-md);
-  transition: all var(--transition-fast);
-  animation: floatIn 0.5s var(--easing-bounce) 0.3s backwards;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin: var(--spacing-md);
+	background-color: var(--color-secondary);
+	color: white;
+	border-radius: 50%;
+	cursor: pointer;
+	font-size: 1rem;
+	width: 56px;
+	height: 56px;
+	box-shadow: var(--shadow-md);
+	transition: all var(--transition-fast);
+	animation: floatIn 0.5s var(--easing-bounce) 0.3s backwards;
 }
 
 .upload-label svg {
-  transition: transform var(--transition-fast);
+	transition: transform var(--transition-fast);
 }
 
 .upload-label:hover {
-  background-color: var(--color-secondary-light);
-  box-shadow: var(--shadow-lg);
-  transform: translateY(-3px);
+	background-color: var(--color-secondary-light);
+	box-shadow: var(--shadow-lg);
+	transform: translateY(-3px);
 }
 
 .upload-label:hover svg {
-  animation: wiggle 1.2s var(--easing-bounce) infinite;
+	animation: wiggle 1.2s var(--easing-bounce) infinite;
 }
 
 .upload-label:active {
-  transform: scale(0.92);
-  transition: transform 0.1s var(--easing-accelerate);
+	transform: scale(0.92);
+	transition: transform 0.1s var(--easing-accelerate);
 }
 
 .file-input {
-  width: 0.1px;
-  height: 0.1px;
-  opacity: 0;
-  overflow: hidden;
-  position: absolute;
-  z-index: -1;
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
 }
 
 .error-message {
-  color: #e74c3c;
-  margin-top: var(--spacing-sm);
-  font-size: 0.9rem;
-  position: absolute;
-  bottom: 100%;
-  right: 0;
-  background-color: white;
-  padding: var(--spacing-sm);
-  border-radius: var(--border-radius-md);
-  box-shadow: var(--shadow-md);
-  width: max-content;
-  max-width: 250px;
-  transform: translateY(-8px);
-  animation: popIn 0.3s var(--easing-bounce);
+	color: #e74c3c;
+	margin-top: var(--spacing-sm);
+	font-size: 0.9rem;
+	position: absolute;
+	bottom: 100%;
+	right: 0;
+	background-color: white;
+	padding: var(--spacing-sm);
+	border-radius: var(--border-radius-md);
+	box-shadow: var(--shadow-md);
+	width: max-content;
+	max-width: 250px;
+	transform: translateY(-8px);
+	animation: popIn 0.3s var(--easing-bounce);
 }
 
 @keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
+	0% {
+		transform: rotate(0deg);
+	}
 
-  100% {
-    transform: rotate(15deg);
-  }
+	100% {
+		transform: rotate(15deg);
+	}
 }
 
 @keyframes wiggle {
-  0% {
-    transform: rotate(0deg) scale(1);
-  }
+	0% {
+		transform: rotate(0deg) scale(1);
+	}
 
-  25% {
-    transform: rotate(12deg) scale(1.1);
-  }
+	25% {
+		transform: rotate(12deg) scale(1.1);
+	}
 
-  50% {
-    transform: rotate(-8deg) scale(1.1);
-  }
+	50% {
+		transform: rotate(-8deg) scale(1.1);
+	}
 
-  75% {
-    transform: rotate(5deg) scale(1.05);
-  }
+	75% {
+		transform: rotate(5deg) scale(1.05);
+	}
 
-  100% {
-    transform: rotate(0deg);
-  }
+	100% {
+		transform: rotate(0deg);
+	}
 }
 
 @keyframes floatIn {
-  0% {
-    opacity: 0;
-    transform: translateY(20px) scale(0.8);
-  }
+	0% {
+		opacity: 0;
+		transform: translateY(20px) scale(0.8);
+	}
 
-  70% {
-    opacity: 1;
-    transform: translateY(-5px) scale(1.05);
-  }
+	70% {
+		opacity: 1;
+		transform: translateY(-5px) scale(1.05);
+	}
 
-  100% {
-    transform: translateY(0) scale(1);
-  }
+	100% {
+		transform: translateY(0) scale(1);
+	}
 }
 
 @keyframes popIn {
-  0% {
-    opacity: 0;
-    transform: translateY(5px) scale(0.9);
-  }
+	0% {
+		opacity: 0;
+		transform: translateY(5px) scale(0.9);
+	}
 
-  70% {
-    opacity: 1;
-    transform: translateY(-10px) scale(1.03);
-  }
+	70% {
+		opacity: 1;
+		transform: translateY(-10px) scale(1.03);
+	}
 
-  100% {
-    transform: translateY(-8px) scale(1);
-  }
+	100% {
+		transform: translateY(-8px) scale(1);
+	}
 }
