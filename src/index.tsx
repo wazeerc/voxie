@@ -14,6 +14,7 @@ export function App() {
 	const [speechRate, setSpeechRate] = useState<number>(1.0);
 	const [isPlaying, setIsPlaying] = useState<boolean>(false);
 	const [isLoading, setIsLoading] = useState<boolean>(false);
+	const [isPaused, setIsPaused] = useState<boolean>(false);
 	const utteranceRef = useRef<SpeechSynthesisUtterance | null>(null);
 
 	const isPlaybackDisabled = !notes.trim() || !selectedVoice;
@@ -33,6 +34,13 @@ export function App() {
 	const handlePlay = useCallback(() => {
 		if (!notes.trim() || !selectedVoice) return;
 
+		if (isPaused && utteranceRef.current) {
+			speechSynthesis.resume();
+			setIsPlaying(true);
+			setIsPaused(false);
+			return;
+		}
+
 		setIsLoading(true);
 		speechSynthesis.cancel();
 
@@ -41,32 +49,37 @@ export function App() {
 		utterance.addEventListener("start", () => {
 			setIsLoading(false);
 			setIsPlaying(true);
+			setIsPaused(false);
 		});
 
 		utterance.addEventListener("end", () => {
 			setIsPlaying(false);
 			setIsLoading(false);
+			setIsPaused(false);
 		});
 
 		utterance.addEventListener("error", () => {
 			setIsPlaying(false);
 			setIsLoading(false);
+			setIsPaused(false);
 			console.error("Speech synthesis error occurred");
 		});
 
 		utteranceRef.current = utterance;
 		speechSynthesis.speak(utterance);
-	}, [notes, selectedVoice, speechRate]);
+	}, [notes, selectedVoice, speechRate, isPaused]);
 
 	const handlePause = useCallback(() => {
 		speechSynthesis.pause();
 		setIsPlaying(false);
+		setIsPaused(true);
 		setIsLoading(false);
 	}, []);
 
 	const handleStop = useCallback(() => {
 		speechSynthesis.cancel();
 		setIsPlaying(false);
+		setIsPaused(false);
 		setIsLoading(false);
 	}, []);
 
