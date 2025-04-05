@@ -21,7 +21,7 @@ function textToSpeech(
 	voice: SpeechSynthesisVoice | null,
 	rate = 1.0,
 ): SpeechSynthesisUtterance {
-	const utterance = new SpeechSynthesisUtterance(text);
+	const utterance = new SpeechSynthesisUtterance(removeEmojis(text));
 
 	if (voice) {
 		utterance.voice = voice;
@@ -72,4 +72,9 @@ async function grabTextFromPDF(file: File): Promise<string> {
 	});
 }
 
-export { cleanNotes, grabTextFromPDF, textToSpeech };
+function removeEmojis(text: string): string {
+	return text.replace(/[\p{Emoji}]/gu, "");
+}
+
+export { cleanNotes, grabTextFromPDF, removeEmojis, textToSpeech };
+
