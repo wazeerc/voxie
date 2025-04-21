@@ -1,9 +1,7 @@
 import * as pdfjs from "pdfjs-dist";
 
-pdfjs.GlobalWorkerOptions.workerSrc = new URL(
-	"pdfjs-dist/build/pdf.worker.mjs",
-	import.meta.url,
-).toString();
+// Point to the local worker file in the public directory
+pdfjs.GlobalWorkerOptions.workerSrc = "/pdfjs-workers/pdf.worker.min.js";
 
 function cleanNotes(text: string): string {
 	let cleaned = text.replace(/Page\s+\d+\s+of\s+\d+/gi, "");
