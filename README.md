@@ -3,7 +3,7 @@
 Voxie is a lightweight, accessible text-to-speech web application that converts your notes, documents, and text into natural-sounding speech. Perfect for students, professionals, and anyone who prefers listening to reading.
 
 > [!NOTE]
-> This app was 99.9% vibe coded using VSCode (1.98.2), GitHub Copilot, Claude Sonnet 3.7 Thinking Preview in Edit mode - I only wrote 2-3 lines of code XD
+> This app was 99.9% vibe coded using VSCode (1.98.2), GitHub Copilot, Claude Sonnet 3.7 (Thinking Preview) in Edit & Agent mode - I only wrote 2-3 lines of code XD
 
 ## Features
 
