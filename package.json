@@ -8,7 +8,7 @@
 		"format": "biome check --write ."
 	},
 	"dependencies": {
-		"pdfjs-dist": "^3.11.174",
+		"pdfjs-dist": "^4.2.67",
 		"preact": "^10.25.3",
 		"preact-iso": "^2.9.1",
 		"preact-render-to-string": "^6.5.13"
