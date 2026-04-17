@@ -180,19 +180,22 @@ export const VoiceSelector = memo(({ onVoiceChange }: VoiceSelectorProps) => {
 	return (
 		<div class="voice-selector" ref={dropdownRef}>
 			<div class="voice-selector-header">
-				<label id="voice-dropdown-label">Select Voice:</label>
+				<p id="voice-dropdown-label">Browser Voice</p>
 			</div>
 
 			<div class="dropdown-container">
-				<div
+				<button
+					type="button"
 					class="dropdown-header"
 					onClick={toggleDropdown}
 					aria-expanded={isDropdownOpen}
+					aria-haspopup="listbox"
 					aria-labelledby="voice-dropdown-label"
-					onKeyDown={(e) => e.key === "Enter" && toggleDropdown()}
 				>
-					<span>{!searchTerm && !isDropdownOpen ? displayText : ""}</span>
-					<span class="dropdown-arrow">
+					<span class="dropdown-text">
+						{!searchTerm && !isDropdownOpen ? displayText : ""}
+					</span>
+					<span class="dropdown-arrow" aria-hidden="true">
 						{isDropdownOpen ? (
 							<svg
 								xmlns="http://www.w3.org/2000/svg"
@@ -205,6 +208,7 @@ export const VoiceSelector = memo(({ onVoiceChange }: VoiceSelectorProps) => {
 								stroke-linecap="round"
 								stroke-linejoin="round"
 								class="feather feather-chevron-up"
+								aria-hidden="true"
 							>
 								<polyline points="18 15 12 9 6 15" />
 							</svg>
@@ -220,12 +224,13 @@ export const VoiceSelector = memo(({ onVoiceChange }: VoiceSelectorProps) => {
 								stroke-linecap="round"
 								stroke-linejoin="round"
 								class="feather feather-chevron-down"
+								aria-hidden="true"
 							>
 								<polyline points="6 9 12 15 18 9" />
 							</svg>
 						)}
 					</span>
-				</div>
+				</button>
 
 				{isDropdownOpen && (
 					<div class="dropdown-menu">
@@ -245,22 +250,18 @@ export const VoiceSelector = memo(({ onVoiceChange }: VoiceSelectorProps) => {
 						<div class="dropdown-options">
 							{filteredVoices.length > 0 ? (
 								filteredVoices.map((voice) => (
-									<div
+									<button
+										type="button"
 										key={voice.name}
 										class={`dropdown-option ${voice.name === selectedVoice ? "selected" : ""}`}
 										onClick={() => handleVoiceSelect(voice)}
-										onKeyDown={(e) =>
-											e.key === "Enter" && handleVoiceSelect(voice)
-										}
-										tabIndex={0}
-										role="option"
-										aria-selected={voice.name === selectedVoice}
+										tabIndex={-1}
 									>
 										{voice.name} ({voice.lang})
 										{voice.localService && (
 											<span class="local-indicator"> (Local)</span>
 										)}
-									</div>
+									</button>
 								))
 							) : (
 								<div class="no-results">No voices match your search</div>

@@ -57,6 +57,7 @@ export const PlaybackControls = memo(
 			<div class="playback-controls">
 				<div class="playback-buttons">
 					<button
+						type="button"
 						onClick={handlePlayPause}
 						aria-label={isPlaying ? "Pause" : "Play"}
 						class="control-button"
@@ -74,6 +75,7 @@ export const PlaybackControls = memo(
 								stroke-linecap="round"
 								stroke-linejoin="round"
 								class="feather feather-loader loading-spinner"
+								aria-hidden="true"
 							>
 								<line x1="12" y1="2" x2="12" y2="6" />
 								<line x1="12" y1="18" x2="12" y2="22" />
@@ -96,6 +98,7 @@ export const PlaybackControls = memo(
 								stroke-linecap="round"
 								stroke-linejoin="round"
 								class="feather feather-pause"
+								aria-hidden="true"
 							>
 								<rect x="6" y="4" width="4" height="16" />
 								<rect x="14" y="4" width="4" height="16" />
@@ -112,12 +115,14 @@ export const PlaybackControls = memo(
 								stroke-linecap="round"
 								stroke-linejoin="round"
 								class="feather feather-play"
+								aria-hidden="true"
 							>
 								<polygon points="5 3 19 12 5 21 5 3" />
 							</svg>
 						)}
 					</button>
 					<button
+						type="button"
 						onClick={handleStop}
 						aria-label="Stop"
 						class="control-button"
@@ -134,6 +139,7 @@ export const PlaybackControls = memo(
 							stroke-linecap="round"
 							stroke-linejoin="round"
 							class="feather feather-square"
+							aria-hidden="true"
 						>
 							<rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
 						</svg>

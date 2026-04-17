@@ -39,7 +39,8 @@ export const NotesUploader = memo(({ onTextExtracted }: NotesUploaderProps) => {
 
 	return (
 		<div class="notes-uploader">
-			<label htmlFor="pdf-upload" class="upload-label" title="Upload PDF">
+			<label htmlFor="pdf-upload" class="upload-label" title="Upload PDF file">
+				<span>Upload PDF</span>
 				{isLoading ? (
 					<svg
 						xmlns="http://www.w3.org/2000/svg"
@@ -52,6 +53,7 @@ export const NotesUploader = memo(({ onTextExtracted }: NotesUploaderProps) => {
 						stroke-linecap="round"
 						stroke-linejoin="round"
 						class="feather feather-loader"
+						aria-hidden="true"
 					>
 						<line x1="12" y1="2" x2="12" y2="6" />
 						<line x1="12" y1="18" x2="12" y2="22" />
@@ -74,6 +76,7 @@ export const NotesUploader = memo(({ onTextExtracted }: NotesUploaderProps) => {
 						stroke-linecap="round"
 						stroke-linejoin="round"
 						class="feather feather-upload"
+						aria-hidden="true"
 					>
 						<path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
 						<polyline points="17 8 12 3 7 8" />

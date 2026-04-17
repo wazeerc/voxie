@@ -1,42 +1,49 @@
 .text-input-container {
-	width: 100%;
+	display: grid;
+	gap: 0.55rem;
+	min-height: 360px;
 	height: 100%;
-	max-width: 1000px;
-	margin: 0 auto;
-	padding: var(--spacing-md);
-	position: relative;
+	min-width: 0;
+}
+
+.text-meta {
 	display: flex;
-	flex-direction: column;
-	animation: fadeInExpand 0.5s 0.1s var(--easing-smooth) backwards;
+	justify-content: flex-end;
+	gap: 0.8rem;
+	font-size: 0.76rem;
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 0.08em;
+	color: #6a7487;
+	flex-wrap: wrap;
+	min-width: 0;
 }
 
 .notes-textarea {
 	width: 100%;
+	min-height: 330px;
 	height: 100%;
-	padding: var(--spacing-lg);
-	border: 2px solid var(--color-dark-25);
-	border-radius: var(--border-radius-lg);
-	font-size: 18px;
-	line-height: 1.6;
-	resize: none;
-	font-family: "Times New Roman", Times, serif;
-	background-color: white;
-	color: var(--color-dark);
-	box-shadow: var(--shadow-md);
-	transition: all var(--transition-normal);
+	padding: 1rem;
+	border: 1px solid var(--color-line);
+	border-radius: var(--border-radius-md);
+	background: #fffdfa;
+	color: var(--color-ink);
+	font-family: "IBM Plex Serif", Georgia, serif;
+	font-size: 1rem;
+	line-height: 1.7;
+	resize: vertical;
+	transition: border-color var(--transition-fast), box-shadow
+		var(--transition-fast);
 }
 
 .notes-textarea:focus {
-	border-color: var(--color-primary);
-	border-width: 2px;
-	box-shadow: 0 0 0 3px rgba(0, 38, 66, 0.2), var(--shadow-md);
+	border-color: rgba(20, 108, 120, 0.48);
+	box-shadow: 0 0 0 3px rgba(20, 108, 120, 0.15);
 	outline: none;
-	animation: glowPulse 2.5s infinite;
 }
 
 .notes-textarea::placeholder {
-	color: var(--color-dark-50);
-	opacity: 0.7;
+	color: #7f8794;
 }
 
 .sr-only {
@@ -49,30 +56,4 @@
 	clip: rect(0, 0, 0, 0);
 	white-space: nowrap;
 	border-width: 0;
-}
-
-@keyframes fadeInExpand {
-	from {
-		opacity: 0;
-		transform: scale(0.97);
-	}
-
-	to {
-		opacity: 1;
-		transform: scale(1);
-	}
-}
-
-@keyframes glowPulse {
-	0% {
-		box-shadow: 0 0 0 3px rgba(0, 38, 66, 0.1), var(--shadow-md);
-	}
-
-	50% {
-		box-shadow: 0 0 0 4px rgba(0, 38, 66, 0.2), var(--shadow-md);
-	}
-
-	100% {
-		box-shadow: 0 0 0 3px rgba(0, 38, 66, 0.1), var(--shadow-md);
-	}
 }

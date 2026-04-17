@@ -1,4 +1,10 @@
 import * as pdfjs from "pdfjs-dist";
+import {
+	ELEVENLABS_DOCS_URL,
+	getElevenLabsConfig,
+	isElevenLabsConfigured,
+	synthesizeSpeech,
+} from "./elevenLabs";
 
 // Point to the local worker file in the public directory
 pdfjs.GlobalWorkerOptions.workerSrc = "/pdfjs-workers/pdf.worker.min.js";
@@ -14,10 +20,14 @@ function cleanNotes(text: string): string {
 	return cleaned;
 }
 
+function removeEmojis(text: string): string {
+	return text.replace(/[\p{Emoji}]/gu, "");
+}
+
 function textToSpeech(
 	text: string,
 	voice: SpeechSynthesisVoice | null,
-	rate = 1.0,
+	rate = 1,
 ): SpeechSynthesisUtterance {
 	const utterance = new SpeechSynthesisUtterance(removeEmojis(text));
 
@@ -49,7 +59,11 @@ async function grabTextFromPDF(file: File): Promise<string> {
 					const page = await pdf.getPage(i);
 					const textContent = await page.getTextContent();
 					const pageText = textContent.items
-						.map((item: any) => ("str" in item ? item.str : ""))
+						.map((item: unknown) =>
+							typeof item === "object" && item !== null && "str" in item
+								? (item as { str: string }).str
+								: "",
+						)
 						.join(" ");
 
 					fullText += `${pageText}\n`;
@@ -70,9 +84,13 @@ async function grabTextFromPDF(file: File): Promise<string> {
 	});
 }
 
-function removeEmojis(text: string): string {
-	return text.replace(/[\p{Emoji}]/gu, "");
-}
-
-export { cleanNotes, grabTextFromPDF, removeEmojis, textToSpeech };
-
+export {
+	cleanNotes,
+	grabTextFromPDF,
+	removeEmojis,
+	textToSpeech,
+	synthesizeSpeech,
+	ELEVENLABS_DOCS_URL,
+	getElevenLabsConfig,
+	isElevenLabsConfigured,
+};

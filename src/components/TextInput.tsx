@@ -16,6 +16,9 @@ export const TextInput = memo(
 	}: TextInputProps) => {
 		const [text, setText] = useState<string>(initialText);
 
+		const wordCount = text.trim() ? text.trim().split(/\s+/).length : 0;
+		const characterCount = text.length;
+
 		useEffect(() => {
 			setText(initialText);
 		}, [initialText]);
@@ -34,6 +37,10 @@ export const TextInput = memo(
 				<label htmlFor="notes-input" class="sr-only">
 					Your Notes
 				</label>
+				<div class="text-meta">
+					<span>{wordCount} words</span>
+					<span>{characterCount} characters</span>
+				</div>
 				<textarea
 					id="notes-input"
 					value={text}

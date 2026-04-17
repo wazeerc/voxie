@@ -8,15 +8,17 @@
 		"format": "biome check --write ."
 	},
 	"dependencies": {
+		"@elevenlabs/elevenlabs-js": "^2.43.0",
 		"pdfjs-dist": "^4.2.67",
-		"preact": "^10.25.3",
-		"preact-iso": "^2.9.1",
-		"preact-render-to-string": "^6.5.13"
+		"preact": "latest",
+		"preact-iso": "latest",
+		"preact-render-to-string": "latest"
 	},
 	"devDependencies": {
-		"@biomejs/biome": "1.9.4",
-		"@preact/preset-vite": "^2.9.3",
+		"@biomejs/biome": "latest",
+		"@preact/preset-vite": "latest",
+		"@types/node": "^25.6.0",
 		"typescript": "^5.8.2",
-		"vite": "^6.0.4"
+		"vite": "latest"
 	}
 }
